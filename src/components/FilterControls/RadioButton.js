@@ -37,11 +37,9 @@ const RadioButton = ({ id, filter, selectedFilter, count, percentage, onChange }
     <label
       className="FilterControls-radioButton"
       htmlFor={id}>
-      <span className="FilterControls-radioButton-label">
-        {button.label}
-      </span>
       {Icon ? <Icon className={ 'FilterControls-radioButton-icon ' + (button.modifier ? button.modifier : '') } /> : ''}
-      {percentage && <span className="FilterControls-radioButton-percentage">{percentage}</span>}
+      <span>{button.label}</span>
+      {percentage && <span className="FilterControls-radioButton-percentage">{percentage}%</span>}
     </label>
   </span>
 }

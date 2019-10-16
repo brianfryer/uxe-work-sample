@@ -32,7 +32,7 @@
 }
 
 .ControlList-item-wrapper {
-  @apply border-t border-solid border-gray-400 text-gray-800;
+  @apply border-t border-solid border-blue-100 text-gray-800;
 
   &:hover {
     @apply bg-gray-200;
@@ -52,7 +52,7 @@
 }
 
 .ControlList-item-name {
-  @apply block w-24 text-gray-600 text-xs font-bold uppercase;
+  @apply block w-24 text-gray-400 text-xs font-bold uppercase;
 
   flex: 0 0 auto;
 }

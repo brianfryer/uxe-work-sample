@@ -34,7 +34,7 @@ const FilterControls = ({ selectedFilter, onFilterChange, controls }) => {
         selectedFilter={selectedFilter}
         onChange={onFilterChange}
         count={implemented.length}
-        percentage={(implemented.length / controls.length).toFixed(2)}
+        percentage={Math.round(implemented.length / controls.length * 100)}
       />
 
       <RadioButton
@@ -43,7 +43,7 @@ const FilterControls = ({ selectedFilter, onFilterChange, controls }) => {
         selectedFilter={selectedFilter}
         onChange={onFilterChange}
         count={notImplemented.length}
-        percentage={(notImplemented.length / controls.length).toFixed(2)}
+        percentage={Math.round(notImplemented.length / controls.length * 100)}
       />
 
       <RadioButton
@@ -52,7 +52,7 @@ const FilterControls = ({ selectedFilter, onFilterChange, controls }) => {
         selectedFilter={selectedFilter}
         onChange={onFilterChange}
         count={unknown.length}
-        percentage={(unknown.length / controls.length).toFixed(2)}
+        percentage={Math.round(unknown.length / controls.length * 100)}
       />
 
     </div>

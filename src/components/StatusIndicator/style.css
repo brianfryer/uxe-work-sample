@@ -5,15 +5,15 @@
   align-items: center;
 
   &.is-implemented {
-    @apply text-green-600;
+    @apply text-green-500;
   }
 
   &.is-not-implemented {
-    @apply text-red-600;
+    @apply text-red-500;
   }
 
   &.is-unknown {
-    @apply text-yellow-600;
+    @apply text-yellow-500;
   }
 }
 

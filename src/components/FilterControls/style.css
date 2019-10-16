@@ -10,7 +10,7 @@
 }
 
 .FilterControls-heading {
-  @apply text-xs uppercase font-bold text-gray-600;
+  @apply text-xs uppercase font-bold text-gray-500;
 }
 
 .FilterControls {
@@ -21,7 +21,7 @@
 }
 
 .FilterControls-radioButton-wrapper {
-  @apply select-none block border border-solid border-gray-400 text-gray-600;
+  @apply select-none block border border-solid border-blue-300 text-gray-500;
 
   &:hover {
     @apply text-blue-600 bg-blue-200;
@@ -55,8 +55,8 @@
 
   &:checked {
 
-    ~ .FilterControls-radioButton-label {
-      @apply bg-gray-200 text-gray-600 shadow-inner;
+    ~ .FilterControls-radioButton {
+      @apply bg-gray-200 text-gray-500 shadow-inner;
     }
   }
 }
@@ -68,27 +68,23 @@
   align-items: center;
 }
 
-.FilterControls-radioButton-label {
-  @apply mr-1;
-}
-
 .FilterControls-radioButton-icon {
-  @apply inline-block w-4 h-4 ml-2 fill-current;
+  @apply inline-block w-4 h-4 mr-2 fill-current;
 
   &.is-implemented {
-    @apply text-green-600;
+    @apply text-green-500;
   }
 
   &.is-not-implemented {
-    @apply text-red-600;
+    @apply text-red-500;
   }
 
   &.is-unknown {
-    @apply text-yellow-600;
+    @apply text-yellow-500;
   }
 }
 
 .FilterControls-radioButton-percentage {
-  @apply inline-block ml-3 font-normal;
+  @apply inline-block ml-2 font-normal text-gray-400;
 }
 
