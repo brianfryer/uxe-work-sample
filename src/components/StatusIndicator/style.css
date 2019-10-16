@@ -1,0 +1,28 @@
+.StatusIndicator {
+  @apply text-xs font-bold uppercase whitespace-no-wrap;
+
+  display: flex;
+  align-items: center;
+
+  &.is-implemented {
+    @apply text-green-600;
+  }
+
+  &.is-not-implemented {
+    @apply text-red-600;
+  }
+
+  &.is-unknown {
+    @apply text-yellow-600;
+  }
+}
+
+.StatusIndicator-label {
+  @apply inline-block mr-1;
+}
+
+.StatusIndicator-icon {
+  @apply inline-block w-4 h-4 ml-2;
+
+  fill: currentcolor;
+}
