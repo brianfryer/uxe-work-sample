@@ -1,0 +1,66 @@
+.ControlList {
+  @apply bg-white;
+
+  flex: 0 0 auto;
+  width: 50%;
+
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.075);
+}
+
+.ControlList-heading {
+  @apply p-4 text-gray-600 text-xs font-bold uppercase bg-gray-200;
+}
+
+.ControlList-table-headings-container {
+  @apply p-4;
+
+  display: flex;
+  align-items: center;
+}
+
+.ControlList-table-heading {
+  @apply text-gray-600 text-xs font-bold uppercase;
+
+  flex: 1 1 auto;
+
+  &:first-child {
+    @apply w-24;
+  }
+
+  &:first-child,
+  &:last-child {
+    flex: 0 0 auto;
+  }
+}
+
+.ControlList-item-wrapper {
+  @apply border-t border-solid border-gray-400 text-gray-800;
+
+  &.is-active {
+    @apply text-white bg-blue-600;
+  }
+
+  &:hover {
+    @apply bg-gray-200;
+  }
+}
+
+.ControlList-item {
+  @apply px-4 py-3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ControlList-item-name {
+  @apply block w-24 text-gray-600 text-xs font-bold uppercase;
+
+  flex: 0 0 auto;
+}
+
+.ControlList-item-description {
+  @apply pr-3 text-xs;
+
+  flex: 1 1 auto;
+}
