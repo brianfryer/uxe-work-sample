@@ -1,0 +1,67 @@
+.FilterControls-wrapper {
+  @apply px-1 py-4 border-t border-solid border-gray-300 shadow;
+
+  /* pull this up to allow shadow to display */
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+}
+
+.FilterControls {
+  @apply ml-4;
+
+  display: flex;
+  align-items: center;
+}
+
+.FilterControls-radioButton {
+  @apply select-none block border border-solid border-gray-400 text-gray-600;
+
+  &:hover {
+    @apply text-blue-600 bg-blue-200;
+  }
+
+  &:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &:not(:last-child) {
+    @apply border-r-0;
+  }
+}
+
+.FilterControls-radioButton-toggle {
+  /* keep this visually hidden, but still accessible */
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  &:checked {
+
+    ~ .FilterControls-radioButton-label {
+      @apply bg-gray-200 text-gray-600 shadow-inner;
+    }
+  }
+}
+
+.FilterControls-radioButton-label {
+  @apply cursor-pointer block px-3 py-1 font-bold text-xs uppercase;
+}
+
+.FilterControls-radioButton-percentage {
+  @apply inline-block ml-3 font-normal;
+}
+
