@@ -1,0 +1,41 @@
+$borderRadius: 5px;
+
+.ControlMain-wrapper {
+  @apply p-4;
+  width: 50%;
+}
+
+.ControlMain {
+  @apply border border-solid border-gray-400 bg-gray-100;
+
+  overflow: hidden;
+  border-radius: $borderRadius;
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.075);
+}
+
+.ControlMain-heading {
+  @apply p-4 border-b border-solid border-gray-300 bg-white text-lg text-gray-800 font-semibold;
+
+  border-top-right-radius: $borderRadius;
+  border-top-left-radius: $borderRadius;
+}
+
+.ControlMain-status {
+  @apply p-4 border-b border-solid border-gray-300 bg-white text-gray-600 text-xs font-bold uppercase;
+
+  &:before {
+    @apply inline-block mr-3;
+    content: 'Status';
+  }
+
+  box-shadow: 0 1px 2px 0 rgba(#000, 0.075);
+  display: flex;
+  align-items: center;
+}
+
+.ControlMain-description {
+  @apply p-4 text-gray-700;
+
+  border-bottom-right-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+}
