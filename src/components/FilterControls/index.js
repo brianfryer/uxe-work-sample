@@ -1,7 +1,7 @@
 import React from 'react'
 import RadioButton from './RadioButton'
 
-const FilterControls = ({ controls }) => {
+const FilterControls = ({ selectedFilter, onFilterChange, controls }) => {
   let implemented = []
   let notImplemented = []
   let unknown = []
@@ -15,32 +15,43 @@ const FilterControls = ({ controls }) => {
   })
 
   return <div className="FilterControls-wrapper">
-    <p>
+    <p className="FilterControls-heading">
       Filter Controls
     </p>
     <div className="FilterControls">
 
       <RadioButton
         id="show-all"
-        filter="All"
-        label={`All ${controls.length} controls`}
+        filter="all"
+        selectedFilter={selectedFilter}
+        onChange={onFilterChange}
+        count={controls.length}
       />
+
       <RadioButton
         id="show-implemented"
-        filter={true}
-        label={`${implemented.length} implemented`}
+        filter="implemented"
+        selectedFilter={selectedFilter}
+        onChange={onFilterChange}
+        count={implemented.length}
         percentage={(implemented.length / controls.length).toFixed(2)}
       />
+
       <RadioButton
         id="show-not-implemented"
-        filter={false}
-        label={`${notImplemented.length} not implemented`}
+        filter="not-implemented"
+        selectedFilter={selectedFilter}
+        onChange={onFilterChange}
+        count={notImplemented.length}
         percentage={(notImplemented.length / controls.length).toFixed(2)}
       />
+
       <RadioButton
         id="show-unknown"
-        filter="Unknown"
-        label={`${unknown.length} unknown`}
+        filter="unknown"
+        selectedFilter={selectedFilter}
+        onChange={onFilterChange}
+        count={unknown.length}
         percentage={(unknown.length / controls.length).toFixed(2)}
       />
 

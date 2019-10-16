@@ -10,7 +10,9 @@ import PageHeader from './components/PageHeader';
 
 class App extends Component {
   state = {
-    controls: null
+    controls: null,
+    filteredControls: null,
+    selectedFilter: 'all',
   }
 
   componentDidMount() {
@@ -20,15 +22,28 @@ class App extends Component {
   }
 
   render() {
-    const { controls } = this.state
-    let thing = true
-    const filteredControls = controls && controls.filter(c => {
-      return (thing === 'unknown')
-        ? !c.hasOwnProperty('state')
-        : c.state && c.state.isImplemented === thing
-    })
+    const { controls, selectedFilter } = this.state
+    const handleFilterChange = e => this.setState({ selectedFilter: e.target.value })
 
-    console.log(filteredControls)
+    let filteredControls = controls && controls.filter(c => {
+
+      if (selectedFilter === 'all') {
+        return true
+      }
+
+      if (selectedFilter === 'implemented') {
+        return c.state && c.state.isImplemented
+      }
+
+      if (selectedFilter === 'not-implemented') {
+        return c.state && !c.state.isImplemented
+      }
+
+      if (selectedFilter === 'unknown') {
+        return !c.hasOwnProperty('state')
+      }
+
+    })
 
     return (
       <Router>
@@ -41,7 +56,12 @@ class App extends Component {
 
           {controls &&
             <>
-              <FilterControls controls={controls} />
+              <FilterControls
+                selectedFilter={selectedFilter}
+                onFilterChange={handleFilterChange}
+                controls={controls}
+              />
+
               <ControlsWrapper>
                 <Route exact path='/' render={() => (
                   <Redirect to={{ pathname: `/controls/${controls[0].id}` }} />
@@ -49,7 +69,7 @@ class App extends Component {
 
                 <Route path='/controls/:controlId' render={({ match }) => (
                   <>
-                    <ControlList controls={controls} location={match.params.controlId} />
+                    <ControlList controls={filteredControls} location={match.params.controlId} />
                     <ControlMain control={controls.find(c => c.id.toString() === match.params.controlId)} />
                   </>
                 )} />
