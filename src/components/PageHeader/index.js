@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const PageHeader = ({ heading, subheading }) => (
   <div className="PageHeader">
@@ -7,4 +7,4 @@ const PageHeader = ({ heading, subheading }) => (
   </div>
 )
 
-export default PageHeader;
+export default PageHeader

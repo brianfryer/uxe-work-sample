@@ -10641,10 +10641,10 @@ video {
 
 .ControlList {
   background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   -webkit-box-flex: 0;
           flex: 0 0 auto;
   width: 50%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.075);
 }
 
 .ControlList-heading {
@@ -10740,9 +10740,9 @@ video {
   border-style: solid;
   border-color: #cbd5e0;
   background-color: #f7fafc;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
   border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.075);
 }
 
 .ControlMain-heading {
@@ -10768,6 +10768,7 @@ video {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .ControlMain-status:before {
@@ -10777,7 +10778,6 @@ video {
   }
 
 .ControlMain-status {
-  box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.075);
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -10791,11 +10791,105 @@ video {
   border-bottom-left-radius: 5px;
 }
 
-.Controls {
+.ControlsWrapper {
+  background-color: #e2e8f0;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: start;
           align-items: flex-start;
+}
+
+.FilterControls-wrapper {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top-width: 1px;
+  border-style: solid;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /* pull this up to allow shadow to display */
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.FilterControls {
+  margin-left: 1rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.FilterControls-radioButton {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbd5e0;
+  color: #718096
+}
+
+.FilterControls-radioButton:hover {
+    color: #3182ce;
+    background-color: #bee3f8;
+  }
+
+.FilterControls-radioButton:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+.FilterControls-radioButton:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+.FilterControls-radioButton:not(:last-child) {
+    border-right-width: 0;
+  }
+
+.FilterControls-radioButton-toggle {
+  /* keep this visually hidden, but still accessible */
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0
+}
+
+.FilterControls-radioButton-toggle:checked ~ .FilterControls-radioButton-label {
+      background-color: #edf2f7;
+      color: #718096;
+      box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    }
+
+.FilterControls-radioButton-label {
+  cursor: pointer;
+  display: block;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.FilterControls-radioButton-percentage {
+  display: inline-block;
+  margin-left: 0.75rem;
+  font-weight: 400;
 }
 
 .PageHeader {
@@ -10845,7 +10939,7 @@ video {
   width: 1rem;
   height: 1rem;
   margin-left: 0.5rem;
-  fill: currentcolor;
+  fill: currentColor;
 }
 
 @media (min-width: 640px) {

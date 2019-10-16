@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import getControls from './api'
 import { Redirect, Route, BrowserRouter as Router } from 'react-router-dom'
-import Controls from './components/Controls';
+import ControlsWrapper from './components/ControlsWrapper';
 import ControlList from './components/ControlList';
 import ControlMain from './components/ControlMain';
+import FilterControls from './components/FilterControls';
 import PageHeader from './components/PageHeader';
 
 class App extends Component {
@@ -19,7 +20,15 @@ class App extends Component {
   }
 
   render() {
-    const { controls } = this.state;
+    const { controls } = this.state
+    let thing = true
+    const filteredControls = controls && controls.filter(c => {
+      return (thing === 'unknown')
+        ? !c.hasOwnProperty('state')
+        : c.state && c.state.isImplemented === thing
+    })
+
+    console.log(filteredControls)
 
     return (
       <Router>
@@ -31,20 +40,21 @@ class App extends Component {
           />
 
           {controls &&
-            <Controls>
+            <>
+              <FilterControls controls={controls} />
+              <ControlsWrapper>
+                <Route exact path='/' render={() => (
+                  <Redirect to={{ pathname: `/controls/${controls[0].id}` }} />
+                )} />
 
-              <Route exact path='/' render={() => (
-                <Redirect to={{ pathname: `/controls/${controls[0].id}` }} />
-              )} />
-
-              <Route path='/controls/:controlId' render={({ match }) => (
-                <>
-                  <ControlList controls={controls} location={match.params.controlId} />
-                  <ControlMain control={controls.find(c => c.id.toString() === match.params.controlId)} />
-                </>
-              )} />
-
-            </Controls>
+                <Route path='/controls/:controlId' render={({ match }) => (
+                  <>
+                    <ControlList controls={controls} location={match.params.controlId} />
+                    <ControlMain control={controls.find(c => c.id.toString() === match.params.controlId)} />
+                  </>
+                )} />
+              </ControlsWrapper>
+            </>
           }
 
         </div>
